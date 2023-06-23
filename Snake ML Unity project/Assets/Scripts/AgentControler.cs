@@ -12,17 +12,19 @@ public class AgentControler : Agent
     [SerializeField] GameObject player;
     Snake snake;
 
+    /*
     private bool[][][] map;
     private int mapLenght = 45;
     private int mapHeight = 25;
     private Vector3 foodPosition;
     private Vector3[] snakePositions;
+    */
 
     protected override void Awake()
     {
         base.Awake();
         snake = player.GetComponent<Snake>();
-        CreateMap();
+        //CreateMap();
 
     }
     
@@ -38,12 +40,13 @@ public class AgentControler : Agent
     }
 
 
-    /*
+    
     public override void CollectObservations(VectorSensor sensor){
         sensor.AddObservation(transform.localPosition);
         sensor.AddObservation(targetTransform.localPosition);
     }
-    */
+    
+    /*
     public override void CollectObservations(VectorSensor sensor){
         //UpdateMap();
         for(int i= 0; i< mapLenght; i++){
@@ -54,7 +57,7 @@ public class AgentControler : Agent
             }
         }
     }
-
+    */
     /*
     public override void OnActionReceived(ActionBuffers actions){
         float moveX = actions.ContinuousActions[0];
@@ -122,7 +125,7 @@ public class AgentControler : Agent
         EndEpisode();
     }
     
-
+    /*
     private void CreateMap(){
         map = new bool[mapLenght][][];
         for(int i= 0; i< mapLenght; i++){
@@ -162,5 +165,5 @@ public class AgentControler : Agent
             map[(int)Mathf.Round(snakePositions[i].x)+(mapLenght+1)/2][(int)Mathf.Round(snakePositions[i].y)+(mapHeight+1)/2][2] = true;
         }    
     }
-
+    */
 }
