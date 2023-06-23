@@ -16,8 +16,10 @@ public class AgentControler : Agent
     public bool[][][] map;
     public int mapLenght = 45;
     public int mapHeight = 25;
-    private Vector3 foodPosition;
-    private Vector3[] snakePositions;
+    //private Vector3 foodPosition;
+    //private Vector3[] snakePositions;
+
+    private string textToConsole;
     
 
     protected override void Awake()
@@ -169,6 +171,69 @@ public class AgentControler : Agent
         for(int i=0; i<snakePositions.Length; i++){
             map[(int)Mathf.Round(snakePositions[i].x)+(mapLenght+1)/2][(int)Mathf.Round(snakePositions[i].y)+(mapHeight+1)/2][2] = true;
         }    
+    }
+    */
+    /*
+    private void Update(){
+        if(Input.GetKeyDown(KeyCode.T)){
+            ShowMap();
+        }
+    }
+
+    private void ShowMap(){
+        textToConsole = "";
+        Debug.Log("Wall");
+        for(int x=0; x<mapHeight; x++){
+            for(int i= 0; i< mapLenght; i++){
+                if(map[i][x][0]==true){
+                    textToConsole += "1";
+                } else{
+                    textToConsole += "0";
+                }
+            }
+            Debug.Log(textToConsole);
+            textToConsole = "";
+        }
+        textToConsole = "";
+        Debug.Log("Food");
+        for(int x=0; x<mapHeight; x++){
+            for(int i= 0; i< mapLenght; i++){
+                if(map[i][x][1]==true){
+                    textToConsole += "1";
+                } else{
+                    textToConsole += "0";
+                }
+            }
+            Debug.Log(textToConsole);
+            textToConsole = "";
+        }
+        textToConsole = "";
+        Debug.Log("Segments");
+        for(int x=0; x<mapHeight; x++){
+            for(int i= 0; i< mapLenght; i++){
+                if(map[i][x][2]==true){
+                    textToConsole += "1";
+                } else{
+                    textToConsole += "0";
+                }
+            }
+            Debug.Log(textToConsole);
+            textToConsole = "";
+        }
+        textToConsole = "";
+        Debug.Log("Head");
+        for(int x=0; x<mapHeight; x++){
+            for(int i= 0; i< mapLenght; i++){
+                if(map[i][x][3]==true){
+                    textToConsole += "1";
+                } else{
+                    textToConsole += "0";
+                }
+            }
+            Debug.Log(textToConsole);
+            textToConsole = "";
+        }
+        textToConsole = "";
     }
     */
     
