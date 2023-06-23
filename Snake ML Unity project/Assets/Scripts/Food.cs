@@ -6,7 +6,7 @@ public class Food : MonoBehaviour
     [SerializeField] GameObject agent;
     AgentControler agentControler;
     
-    private Vector2 previousPosition;
+    //private Vector2 previousPosition;
 
     protected void OnEnable(){
         Snake.HitWall += HitWall;
@@ -28,7 +28,7 @@ public class Food : MonoBehaviour
 
     public void RandomizePosition()
     {
-        previousPosition = transform.position;
+        //previousPosition = transform.position;
         Bounds bounds = gridArea.bounds;
 
         // Pick a random position inside the bounds
@@ -41,8 +41,8 @@ public class Food : MonoBehaviour
 
         transform.position = new Vector2(x, y);
 
-        agentControler.map[(int)Mathf.Round(previousPosition.x)+(agentControler.mapLenght-1)/2][(int)Mathf.Round(previousPosition.y)+(agentControler.mapHeight-1)/2][1] = false;
-        agentControler.map[(int)Mathf.Round(transform.position.x)+(agentControler.mapLenght-1)/2][(int)Mathf.Round(transform.position.y)+(agentControler.mapHeight-1)/2][1] = true;
+        //agentControler.map[(int)Mathf.Round(previousPosition.x)+(agentControler.mapLenght-1)/2][(int)Mathf.Round(previousPosition.y)+(agentControler.mapHeight-1)/2][1] = false;
+        //agentControler.map[(int)Mathf.Round(transform.position.x)+(agentControler.mapLenght-1)/2][(int)Mathf.Round(transform.position.y)+(agentControler.mapHeight-1)/2][1] = true;
     }
 
     private void OnTriggerEnter2D(Collider2D other)

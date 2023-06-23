@@ -11,22 +11,27 @@ public class AgentControler : Agent
     [SerializeField] private Transform targetTransform;
     [SerializeField] GameObject player;
     Snake snake;
+    BufferSensorComponent bufferSensorComponent;
 
-    
-    public bool[][][] map;
-    public int mapLenght = 45;
-    public int mapHeight = 25;
+    public int maxSegmentsNumber=989;
+    //private float[] segmentsPosition;
+    //public bool[][][] map;
+    //public int mapLenght = 45;
+    //public int mapHeight = 25;
     //private Vector3 foodPosition;
     //private Vector3[] snakePositions;
 
-    private string textToConsole;
+    //private string textToConsole;
     
 
     protected override void Awake()
     {
         base.Awake();
         snake = player.GetComponent<Snake>();
-        CreateMap();
+        //bufferSensorComponent = player.GetComponent<BufferSensorComponent>();
+
+        //segmentsPosition = new float[2];
+        //CreateMap();
 
     }
     
@@ -42,12 +47,29 @@ public class AgentControler : Agent
     }
 
 
-    /*
+    
     public override void CollectObservations(VectorSensor sensor){
         sensor.AddObservation(transform.localPosition);
         sensor.AddObservation(targetTransform.localPosition);
+
+        for(int i =1; i<maxSegmentsNumber+1; i++){
+            if(i<snake.segments.Count){
+                sensor.AddObservation(snake.segments[i].position);
+            }else{
+                sensor.AddObservation(Vector3.zero);
+            }
+        }
+
+        /*
+        for(int i =1; i<snake.segments.Count; i++){
+            segmentsPosition[0] = snake.segments[i].position.x;
+            segmentsPosition[1] = snake.segments[i].position.y;
+            bufferSensorComponent.AppendObservation(segmentsPosition);
+        }
+        */
+        
     }
-    */
+    /*
     
     public override void CollectObservations(VectorSensor sensor){
         //UpdateMap();
@@ -60,7 +82,7 @@ public class AgentControler : Agent
             }
         }
     }
-    
+    */
     /*
     public override void OnActionReceived(ActionBuffers actions){
         float moveX = actions.ContinuousActions[0];
@@ -128,7 +150,7 @@ public class AgentControler : Agent
         EndEpisode();
     }
     
-    
+    /*
     private void CreateMap(){
         map = new bool[mapLenght][][];
         for(int i= 0; i< mapLenght; i++){
@@ -151,6 +173,7 @@ public class AgentControler : Agent
         }
 
     }
+    */
     /*
     private void UpdateMap(){
         for(int i= 0; i< mapLenght; i++){
