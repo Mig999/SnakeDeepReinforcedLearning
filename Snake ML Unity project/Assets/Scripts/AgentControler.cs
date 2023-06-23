@@ -12,19 +12,19 @@ public class AgentControler : Agent
     [SerializeField] GameObject player;
     Snake snake;
 
-    /*
-    private bool[][][] map;
-    private int mapLenght = 45;
-    private int mapHeight = 25;
+    
+    public bool[][][] map;
+    public int mapLenght = 45;
+    public int mapHeight = 25;
     private Vector3 foodPosition;
     private Vector3[] snakePositions;
-    */
+    
 
     protected override void Awake()
     {
         base.Awake();
         snake = player.GetComponent<Snake>();
-        //CreateMap();
+        CreateMap();
 
     }
     
@@ -40,13 +40,13 @@ public class AgentControler : Agent
     }
 
 
-    
+    /*
     public override void CollectObservations(VectorSensor sensor){
         sensor.AddObservation(transform.localPosition);
         sensor.AddObservation(targetTransform.localPosition);
     }
+    */
     
-    /*
     public override void CollectObservations(VectorSensor sensor){
         //UpdateMap();
         for(int i= 0; i< mapLenght; i++){
@@ -54,10 +54,11 @@ public class AgentControler : Agent
                 sensor.AddObservation(map[i][x][0]);
                 sensor.AddObservation(map[i][x][1]);
                 sensor.AddObservation(map[i][x][2]);
+                sensor.AddObservation(map[i][x][3]);
             }
         }
     }
-    */
+    
     /*
     public override void OnActionReceived(ActionBuffers actions){
         float moveX = actions.ContinuousActions[0];
@@ -125,18 +126,22 @@ public class AgentControler : Agent
         EndEpisode();
     }
     
-    /*
+    
     private void CreateMap(){
         map = new bool[mapLenght][][];
         for(int i= 0; i< mapLenght; i++){
             map[i] = new bool[mapHeight][];
             for(int x=0; x<mapHeight; x++){
-                map[i][x] = new bool[3];
+                map[i][x] = new bool[4];
             }
         }
 
         for(int i= 0; i< mapLenght; i++){
             for(int x=0; x<mapHeight; x++){
+                map[i][x][0] = false; // Wall
+                map[i][x][1] = false; // Food
+                map[i][x][2] = false; // Snake Segments
+                map[i][x][3] = false; // Head of Snake
                 if(i==0 || x==0 || i==mapLenght-1 || x==mapHeight-1){
                     map[i][x][0] = true;
                 }
@@ -144,7 +149,7 @@ public class AgentControler : Agent
         }
 
     }
-
+    /*
     private void UpdateMap(){
         for(int i= 0; i< mapLenght; i++){
             for(int x=0; x<mapHeight; x++){
@@ -166,4 +171,5 @@ public class AgentControler : Agent
         }    
     }
     */
+    
 }
