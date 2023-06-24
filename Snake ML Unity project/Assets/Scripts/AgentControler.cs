@@ -128,17 +128,17 @@ public class AgentControler : Agent
     
     private float DistanceToObject(Vector2 directionRay)
     {
-        Debug.Log("Funcionand");
+        //Debug.Log("Funcionand");
 
         RaycastHit2D hit = Physics2D.Raycast(transform.position, directionRay);
 
         if (hit.collider != null)
         {
-            Debug.Log("Funcionando2");
+            //Debug.Log("Funcionando2");
             if (hit.collider.CompareTag("Obstacle"))
             {
                 float distanceToObject = hit.distance; // Get the distance to the hit object
-                Debug.Log("Distance to obstacle: " + distanceToObject);
+                //Debug.Log("Distance to obstacle: " + distanceToObject);
             }
         }
 
