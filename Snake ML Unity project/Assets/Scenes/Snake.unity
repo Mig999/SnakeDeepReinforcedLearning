@@ -305,7 +305,7 @@ GameObject:
   - component: {fileID: 962302027}
   m_Layer: 0
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -590,6 +590,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedOption: 1
+  agent: {fileID: 1161375261}
   segments: []
   segmentPrefab: {fileID: 4726879341727194397, guid: a20ea67b69b1572478630ab80ef547fd,
     type: 3}
@@ -695,7 +696,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 3375
+    VectorObservationSize: 2973
     NumStackedVectorObservations: 1
     m_ActionSpec:
       m_NumContinuousActions: 0
@@ -745,6 +746,7 @@ MonoBehaviour:
   MaxStep: -1
   targetTransform: {fileID: 1406060360}
   player: {fileID: 1161375261}
+  maxSegmentsNumber: 989
 --- !u!1 &1406060357
 GameObject:
   m_ObjectHideFlags: 0
@@ -889,6 +891,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridArea: {fileID: 864387895}
+  agent: {fileID: 1161375261}
 --- !u!1 &1431457602
 GameObject:
   m_ObjectHideFlags: 0
@@ -902,7 +905,7 @@ GameObject:
   - component: {fileID: 1431457603}
   m_Layer: 0
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1032,7 +1035,7 @@ GameObject:
   - component: {fileID: 1487117392}
   m_Layer: 0
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1274,7 +1277,7 @@ GameObject:
   - component: {fileID: 8791851091651076915}
   m_Layer: 0
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

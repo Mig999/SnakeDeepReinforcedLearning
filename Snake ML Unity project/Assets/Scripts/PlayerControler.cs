@@ -36,6 +36,23 @@ public class PlayerControler : MonoBehaviour
                 }
             }
         }
+        /*
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("Comienza"+transform.position);
+
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up);
+            if (hit.collider != null)
+            {
+                Debug.Log("Joder");
+                float distance = hit.distance; // Get the distance to the hit object
+                Debug.Log("Distance to obstacle: " + distance+ " Wololo " + hit.point);
+            } else{
+                Debug.Log("Fallo");
+            }
+        }
+        */
+
         
     }
 }

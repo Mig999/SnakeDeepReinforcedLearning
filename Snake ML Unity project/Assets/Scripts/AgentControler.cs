@@ -12,17 +12,17 @@ public class AgentControler : Agent
     [SerializeField] GameObject player;
     Snake snake;
 
-    private bool[][][] map;
-    private int mapLenght = 45;
-    private int mapHeight = 25;
-    private Vector3 foodPosition;
-    private Vector3[] snakePositions;
+
+    private float distanceToObject;
+    
+
 
     protected override void Awake()
     {
         base.Awake();
         snake = player.GetComponent<Snake>();
-        CreateMap();
+
+
 
     }
     
@@ -38,12 +38,20 @@ public class AgentControler : Agent
     }
 
 
-    /*
+
+    
     public override void CollectObservations(VectorSensor sensor){
         sensor.AddObservation(transform.localPosition);
         sensor.AddObservation(targetTransform.localPosition);
+
+        sensor.AddObservation(DistanceToObject(Vector2.up));
+        sensor.AddObservation(DistanceToObject(Vector2.right));
+        sensor.AddObservation(DistanceToObject(Vector2.down));
+        sensor.AddObservation(DistanceToObject(Vector2.left));        
     }
-    */
+    /*
+    
+
     public override void CollectObservations(VectorSensor sensor){
         //UpdateMap();
         for(int i= 0; i< mapLenght; i++){
@@ -51,9 +59,11 @@ public class AgentControler : Agent
                 sensor.AddObservation(map[i][x][0]);
                 sensor.AddObservation(map[i][x][1]);
                 sensor.AddObservation(map[i][x][2]);
+                sensor.AddObservation(map[i][x][3]);
             }
         }
     }
+    */
 
     /*
     public override void OnActionReceived(ActionBuffers actions){
@@ -122,45 +132,27 @@ public class AgentControler : Agent
         EndEpisode();
     }
     
+    
+    private float DistanceToObject(Vector2 directionRay)
+    {
+        //Debug.Log("Funcionand");
 
-    private void CreateMap(){
-        map = new bool[mapLenght][][];
-        for(int i= 0; i< mapLenght; i++){
-            map[i] = new bool[mapHeight][];
-            for(int x=0; x<mapHeight; x++){
-                map[i][x] = new bool[3];
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, directionRay);
+
+        if (hit.collider != null)
+        {
+            //Debug.Log("Funcionando2");
+            if (hit.collider.CompareTag("Obstacle"))
+            {
+                float distanceToObject = hit.distance; // Get the distance to the hit object
+                //Debug.Log("Distance to obstacle: " + distanceToObject);
             }
         }
 
-        for(int i= 0; i< mapLenght; i++){
-            for(int x=0; x<mapHeight; x++){
-                if(i==0 || x==0 || i==mapLenght-1 || x==mapHeight-1){
-                    map[i][x][0] = true;
-                }
-            }
-        }
+        return distanceToObject;
 
     }
-
-    private void UpdateMap(){
-        for(int i= 0; i< mapLenght; i++){
-            for(int x=0; x<mapHeight; x++){
-                map[i][x][1] = false;
-                map[i][x][2] = false;
-            }
-        }
-
-        foodPosition = targetTransform.position;
-        map[(int)Mathf.Round(foodPosition.x)+(mapLenght+1)/2][(int)Mathf.Round(foodPosition.y)+(mapHeight+1)/2][1] = true;
-
-        snakePositions = new Vector3[snake.segments.Count];
-        snakePositions[0] = snake.transform.position;
-        for(int i= 1; i< snake.segments.Count; i++){
-            snakePositions[i] = snake.segments[i].position;
-        }
-        for(int i=0; i<snakePositions.Length; i++){
-            map[(int)Mathf.Round(snakePositions[i].x)+(mapLenght+1)/2][(int)Mathf.Round(snakePositions[i].y)+(mapHeight+1)/2][2] = true;
-        }    
-    }
+    
+    
 
 }
