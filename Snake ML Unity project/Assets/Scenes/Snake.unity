@@ -696,7 +696,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 2973
+    VectorObservationSize: 10
     NumStackedVectorObservations: 1
     m_ActionSpec:
       m_NumContinuousActions: 0
@@ -746,7 +746,6 @@ MonoBehaviour:
   MaxStep: -1
   targetTransform: {fileID: 1406060360}
   player: {fileID: 1161375261}
-  maxSegmentsNumber: 989
 --- !u!1 &1406060357
 GameObject:
   m_ObjectHideFlags: 0
