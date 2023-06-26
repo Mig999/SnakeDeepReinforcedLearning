@@ -12,13 +12,17 @@ public class AgentControler : Agent
     [SerializeField] GameObject player;
     Snake snake;
 
+
     private float distanceToObject;
     
+
 
     protected override void Awake()
     {
         base.Awake();
         snake = player.GetComponent<Snake>();
+
+
 
     }
     
@@ -34,6 +38,7 @@ public class AgentControler : Agent
     }
 
 
+
     
     public override void CollectObservations(VectorSensor sensor){
         sensor.AddObservation(transform.localPosition);
@@ -46,6 +51,7 @@ public class AgentControler : Agent
     }
     /*
     
+
     public override void CollectObservations(VectorSensor sensor){
         //UpdateMap();
         for(int i= 0; i< mapLenght; i++){
@@ -58,6 +64,7 @@ public class AgentControler : Agent
         }
     }
     */
+
     /*
     public override void OnActionReceived(ActionBuffers actions){
         float moveX = actions.ContinuousActions[0];
@@ -147,4 +154,5 @@ public class AgentControler : Agent
     }
     
     
+
 }
