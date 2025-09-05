@@ -1,6 +1,6 @@
 # SnakeDeepReinforcedLearning
 
-This is a project trying to create a deep reinforced learning agent using the ML agents package of Unity capable of learning to play to Snake.
+This is a project to create a deep reinforced learning agent using the ML agents package of Unity capable of learning to play to Snake.
 
 ![Demo](./GameplayExample/LongSnake1.gif)
 
